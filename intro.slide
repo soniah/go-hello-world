@@ -1,0 +1,208 @@
+Introduction to Golang
+Hello World!
+15 Nov 2018
+
+Sonia Hamilton
+Developer, Macquarie Bank
+sonia@snowfrog.net
+http://github.com/soniah
+
+* Introductions and Administrivia
+
+- me, myself and I; Windows
+- who's programmed?
+- ??
+
+* What is Programming?
+
+  if credit card not maxed out
+    go shopping
+  else
+    stay home
+
+  for each famous city on trip
+    take selfie
+
+* What is Programming?
+
+.play -numbers what_is.go
+
+* Go playground, playspace
+
+.link https://play.golang.org/p/fMPOY7BA8Pz
+
+.link https://goplay.space/#fMPOY7BA8Pz
+
+* What is Hello World?
+
+* Hello World
+
+- go installed
+- standard folder structure
+- goland installed
+- print "Hello World!"
+
+* Is Go Installed?
+
+  go version
+
+- Mac: start the terminal by typing '⌘ SPACE terminal'
+
+.image version-osx.png _ 200
+
+- Windows: start the terminal by typing 'Start, Run, Cmd'
+
+.image version-windows.png _ 200
+
+- Linux: start a terminal
+
+* Standard Folder Structure
+
+We want the following:
+
+  ~/
+    go/
+      bin/
+      pkg/
+      src/
+        helloworld/
+
+On Linux/OSX:
+
+  mkdir -p ~/go/{bin,pkg,src/helloworld}
+
+On Windows:
+
+  Use Windows Explorer
+
+_Experienced_Programmers_: $GOPATH, vendor/, dep, vgo
+
+* Is Goland Installed?
+
+- why use an editor like Goland?
+
+.image editor_vim.png _ 600
+
+* Is Goland Installed?
+
+- Atom, Brackets, Visual Studio Code, BBEdit, Emacs, Notepad++, Sublime Text, TextMate, Vim,...
+- best editor?
+
+.image arya_fighting.jpg _ 500
+
+- I use *Goland* and *Vim*
+- what are your colleagues using?
+
+* Goland - Our First Project - HelloWorld
+
+- new project
+- new scratch
+- type in
+
+.play -numbers hello_world.go
+
+- run
+
+* OMG, that was hard...
+
+.image omg.png _ 900
+
+* Go By Example
+
+.link https://gobyexample.com
+
+* Variables, If Then Else
+
+  // comment               /* a longer, multiline comment */
+
+  story := "the cat sat on the mat"   // string
+  daysOfXmas := 12                    // integer ('whole number')
+  const daysOfXmas2 = 12              // constant
+  priceOfEggs := 3.67                 // floating poing ('decimal')
+
+  if len(story) < 100 {               // || 'or'  && 'and'  == 'equal'
+    fmt.Println(story, "is short")
+  } else if priceOfEggs > 4.0 || priceOfEggs < 0.0 {
+    fmt.Println(priceOfEggs, "is expensive"
+  } else {
+    fmt.Println("what was the question?")
+  }
+
+* Exercises
+
+- variable/const with your name, print "Hello xxx"
+- only print out if name is "Arya" or "Samwell"
+
+.image samwell.png _ 400
+
+- (harder) only print out if name starts with A or S (strings.HasPrefix)
+
+* Slices
+
+.image slice.png _ 400
+
+.play -numbers slice.go /^func main/,/^}/
+
+_Experienced_Programmers_: slice vs array
+
+* Exercises
+
+- create a slice of numbers; use a for loop to calculate sum
+- create a slice of Australian cities; print them out as one long string. For example:
+
+  ["Sydney", "Melbourne", "Lismore"] would be "SydneyMelbourneLismore"
+
+.image lismore.png _ 400
+
+- harder: print out the cities with commas eg "Sydney, Melbourne, Lismore"
+
+.image concat.png _ 400
+
+* Debugger
+
+.image debugger.png
+
+* Maps
+
+.image map.png _ 400
+
+.play -numbers maps.go /^func main/,/^}/
+
+Order is *random*
+
+* Exercises
+
+- create of map of students, "name" to "score out of 100". Print out students whose score is between 60 and 80
+
+.image study.png _ 200
+
+- create of map of Australian states (eg NSW) to cities (eg Braavos?). Print out the number of cities per state
+
+.image braavos.png _ 200
+
+* Creating Projects, Building Binaries
+
+- create *~/go/src/helloworld/main.go*
+- use *package*main*
+- run from Goland, then from shell
+
+.image build-run.png _ 400
+
+* Functions
+
+.play -numbers functions.go
+
+* Functions Exercises
+
+- write a function that squares a number; print out the squares between 5 and 10 (hint: use a different form of the 'for' loop)
+- write a second squares function that returns an error if the number 42 is provided; loop for numbers between 40 and 50 and print "don't ask" when an error is encountered
+
+* Wrapup
+
+- so what is Go good at? Intepreted/compiled; microservices; goroutines
+
+- should I learn Go? First language; work; Microsoft Office; Devops; Javascript
+
+- other things to learn? Git, Linux, your editor
+
+- questions?
