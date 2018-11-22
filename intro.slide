@@ -1,17 +1,13 @@
 Introduction to Golang
 Hello World!
-15 Nov 2018
+22 Nov 2018
 
-Sonia Hamilton
-Developer, Macquarie Bank
-sonia@snowfrog.net
-http://github.com/soniah
+Sonia Hamilton, http://github.com/soniah
 
 * Introductions and Administrivia
 
-- me, myself and I; Windows
+- me, myself and I
 - who's programmed?
-- ??
 
 * What is Programming?
 
@@ -27,19 +23,13 @@ http://github.com/soniah
 
 .play -numbers what_is.go
 
-* Go playground, playspace
-
-.link https://play.golang.org/p/fMPOY7BA8Pz
-
-.link https://goplay.space/#fMPOY7BA8Pz
-
 * What is Hello World?
 
 * Hello World
 
-- go installed
+- Go installed
 - standard folder structure
-- goland installed
+- Goland installed
 - print "Hello World!"
 
 * Is Go Installed?
@@ -75,9 +65,9 @@ On Windows:
 
   Use Windows Explorer
 
-_Experienced_Programmers_: $GOPATH, vendor/, dep, vgo
+_Experienced_Programmers_: $GOPATH, dep and vendor, vgo/modules
 
-* Is Goland Installed?
+* Editors
 
 - why use an editor like Goland?
 
@@ -85,7 +75,7 @@ _Experienced_Programmers_: $GOPATH, vendor/, dep, vgo
 
 * Is Goland Installed?
 
-- Atom, Brackets, Visual Studio Code, BBEdit, Emacs, Notepad++, Sublime Text, TextMate, Vim,...
+- editors: Atom, Brackets, Visual Studio Code, BBEdit, Emacs, Notepad++, Sublime Text, TextMate, Vim,...
 - best editor?
 
 .image arya_fighting.jpg _ 500
@@ -95,9 +85,8 @@ _Experienced_Programmers_: $GOPATH, vendor/, dep, vgo
 
 * Goland - Our First Project - HelloWorld
 
-- new project
-- new scratch
-- type in
+- new project in *~/go/src/helloworld*
+- type in:
 
 .play -numbers hello_world.go
 
@@ -105,30 +94,60 @@ _Experienced_Programmers_: $GOPATH, vendor/, dep, vgo
 
 * OMG, that was hard...
 
-.image omg.png _ 900
+.image omg.png _ 800
 
-* Go By Example
+* Variables
 
-.link https://gobyexample.com
+.image variables.png _ 600
 
-* Variables, If Then Else
+  name := "Arya"
+  ...
+  name = "Brienne"
+  ...
+  const dragons = 3
 
-  // comment               /* a longer, multiline comment */
+* Types
+
+.image types2.png _ 800
+
+* If, Else
+
+.image ifthen.png _ 500
+
+* If, Else
+
+.play -numbers what_is.go /if balance/,/}$/
+
+* Variables, If Else
+
+  // comment
+
+  /* a longer,
+  longer comment
+  */
+
 
   story := "the cat sat on the mat"   // string
   daysOfXmas := 12                    // integer ('whole number')
   const daysOfXmas2 = 12              // constant
   priceOfEggs := 3.67                 // floating poing ('decimal')
 
+
   if len(story) < 100 {               // || 'or'  && 'and'  == 'equal'
     fmt.Println(story, "is short")
+
   } else if priceOfEggs > 4.0 || priceOfEggs < 0.0 {
     fmt.Println(priceOfEggs, "is expensive"
+
   } else {
     fmt.Println("what was the question?")
   }
 
 * Exercises
+
+_I_haven't_told_you_everything_
+
+.link https://gobyexample.com
 
 - variable/const with your name, print "Hello xxx"
 - only print out if name is "Arya" or "Samwell"
@@ -197,12 +216,20 @@ Order is *random*
 - write a function that squares a number; print out the squares between 5 and 10 (hint: use a different form of the 'for' loop)
 - write a second squares function that returns an error if the number 42 is provided; loop for numbers between 40 and 50 and print "don't ask" when an error is encountered
 
+* Useful websites
+
+.link https://play.golang.org/p/fMPOY7BA8Pz
+
+.link https://goplay.space/#fMPOY7BA8Pz
+
+.link https://tour.golang.org/list
+
 * Wrapup
 
-- so what is Go good at? Intepreted/compiled; microservices; goroutines
+- so what is Go good at? intepreted vs compiled; microservices; goroutines
 
-- should I learn Go? First language; work; Microsoft Office; Devops; Javascript
+- should I learn Go? First language; work; Microsoft Office; Javascript
 
-- other things to learn? Git, Linux, your editor
+- other things to learn? Your editor, git
 
 - questions?
