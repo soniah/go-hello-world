@@ -1,29 +1,42 @@
 Introduction to Golang
-Hello World!
-22 Nov 2018
+Fri 6 Sep 2019
 
-Sonia Hamilton, http://github.com/soniah
+Sonia Hamilton
 
-* Introductions and Administrivia
+* Overview
 
-- me, myself and I
-- who's programmed?
+- Why Use Go?
+- Hello World
+- if/then, slices, maps
+- functions, structs, interfaces
+- concurrency
 
-* What is Programming?
+.link https://talks.godoc.org/github.com/soniah/go-hello-world/intro.slide
+.link https://tinyurl.com/y2exdknt
 
-  if credit card not maxed out
-    go shopping
-  else
-    stay home
+* Why Go?
 
-  for each famous city on trip
-    take selfie
+*TL;DR* concurrency - based on *goroutines* and *channels*.
 
-* What is Programming?
+- goroutines and channels
 
-.play -numbers what_is.go
+.image  concurrency.png _ 400
 
-* What is Hello World?
+- cores
+- can't you just use C/C++/Java/Scala/Haskell?  Yes but...
+- are you using it? Versus *go*func()*
+- C/C++/Java threads are still heavy, 1-10K vs _millions_ goroutines in Go
+
+* Why Go?
+
+- announced 2009
+- creators: Ken Thompson (Plan 9 Bell Labs), Rob Pike (Plan 9), Robert Griesemer (V8 Engine) _we_started_off_with_the_idea_that_all_three_of_us_had_to_be_talked_into_every_feature_in_the_language,_so_there_was_no_extraneous_garbage_put_into_the_language_for_any_reason_
+
+- statically typed + type inference, garbage collected
+- fast compilation, statically linked, "scp deploy"
+- no inheritance - interfaces "duck typing"
+- can link in C libraries
+- tool chain *go*fmt*
 
 * Hello World
 
@@ -65,15 +78,9 @@ On Windows:
 
   Use Windows Explorer
 
-_Experienced_Programmers_: $GOPATH, dep and vendor, vgo/modules
+_More_Advanced_: $GOPATH, dep and vendor, modules
 
 * Editors
-
-- why use an editor like Goland?
-
-.image editor_vim.png _ 600
-
-* Is Goland Installed?
 
 - editors: Atom, Brackets, Visual Studio Code, BBEdit, Emacs, Notepad++, Sublime Text, TextMate, Vim,...
 - best editor?
@@ -81,101 +88,55 @@ _Experienced_Programmers_: $GOPATH, dep and vendor, vgo/modules
 .image arya_fighting.jpg _ 500
 
 - I use *Goland* and *Vim*
-- what are your colleagues using?
+- _what_are_your_colleagues_using_?
 
-* Goland - Our First Project - HelloWorld
+* Goland - HelloWorld
 
 - new project in *~/go/src/helloworld*
-- type in:
 
-.play -numbers hello_world.go
+.play hello_world.go
 
-- run
+- run from Goland
+- run from shell:
 
-* OMG, that was hard...
+  cd ~/go/src/helloworld
+  go run main.go
+  go build main.go
+  ./main
+  go build -o hello main.go
+  ./hello
 
-.image omg.png _ 800
+* Comments, Variables, If Else
 
-* Variables
-
-.image variables.png _ 600
-
-  name := "Arya"
-  ...
-  name = "Brienne"
-  ...
-  const dragons = 3
-
-* Types
-
-.image types2.png _ 800
-
-* If, Else
-
-.image ifthen.png _ 500
-
-* If, Else
-
-.play -numbers what_is.go /if balance/,/}$/
-
-* Variables, If Else
-
-  // comment
-
-  /* a longer,
-  longer comment
-  */
-
-
-  story := "the cat sat on the mat"   // string
-  daysOfXmas := 12                    // integer ('whole number')
-  const daysOfXmas2 = 12              // constant
-  priceOfEggs := 3.67                 // floating poing ('decimal')
-
-
-  if len(story) < 100 {               // || 'or'  && 'and'  == 'equal'
-    fmt.Println(story, "is short")
-
-  } else if priceOfEggs > 4.0 || priceOfEggs < 0.0 {
-    fmt.Println(priceOfEggs, "is expensive"
-
-  } else {
-    fmt.Println("what was the question?")
-  }
+.play comments.go /comment/,/FIN/
 
 * Exercises
-
-_I_haven't_told_you_everything_
 
 .link https://gobyexample.com
 
 - variable/const with your name, print "Hello xxx"
 - only print out if name is "Arya" or "Samwell"
+- only print out if name starts with A or S (strings.HasPrefix)
 
 .image samwell.png _ 400
 
-- (harder) only print out if name starts with A or S (strings.HasPrefix)
-
-* Slices
+* Arrays and Slices
 
 .image slice.png _ 400
 
-.play -numbers slice.go /^func main/,/^}/
-
-_Experienced_Programmers_: slice vs array
+.play slice.go /Array_ori/,/^}/
 
 * Exercises
 
-- create a slice of numbers; use a for loop to calculate sum
+- create a slice of numbers; use a *for* loop to calculate sum
 - create a slice of Australian cities; print them out as one long string. For example:
 
   ["Sydney", "Melbourne", "Lismore"] would be "SydneyMelbourneLismore"
 
-.image lismore.png _ 400
+  result := "apple"
+  result += "banana"
 
-- harder: print out the cities with commas eg "Sydney, Melbourne, Lismore"
-
-.image concat.png _ 400
+- print out the cities separated by commas eg "Sydney, Melbourne, Lismore"
 
 * Debugger
 
@@ -185,9 +146,9 @@ _Experienced_Programmers_: slice vs array
 
 .image map.png _ 400
 
-.play -numbers maps.go /^func main/,/^}/
+.play maps.go /^func main/,/^}/
 
-Order is *random*
+Order is *random* ("indeterminate")
 
 * Exercises
 
@@ -195,41 +156,75 @@ Order is *random*
 
 .image study.png _ 200
 
-- create of map of Australian states (eg NSW) to cities (eg Braavos?). Print out the number of cities per state
+- create of map of Australian cities (eg Mullum) to states (eg NSW). Print out the number of cities per state
 
-.image braavos.png _ 200
-
-* Creating Projects, Building Binaries
-
-- create *~/go/src/helloworld/main.go*
-- use *package*main*
-- run from Goland, then from shell
-
-.image build-run.png _ 400
+.image lismore.png _ 200
 
 * Functions
 
-.play -numbers functions.go
+.play functions.go
 
 * Functions Exercises
 
 - write a function that squares a number; print out the squares between 5 and 10 (hint: use a different form of the 'for' loop)
-- write a second squares function that returns an error if the number 42 is provided; loop for numbers between 40 and 50 and print "don't ask" when an error is encountered
+- write a second squares function that returns an error if the number 42 is provided. Loop for numbers between 40 and 50 and print "don't ask" when an error occurs
 
-* Useful websites
+* Structs
 
-.link https://play.golang.org/p/fMPOY7BA8Pz
+.play structs.go /struct/,/mark1/
 
-.link https://goplay.space/#fMPOY7BA8Pz
+* Interfaces
 
-.link https://tour.golang.org/list
+- define and implement
 
-* Wrapup
+.play interfaces.go /mark2/,/mark3/
 
-- so what is Go good at? intepreted vs compiled; microservices; goroutines
+- use
 
-- should I learn Go? First language; work; Microsoft Office; Javascript
+.play interfaces.go /mark4/,/mark5/
 
-- other things to learn? Your editor, git
+* Exercise
+
+- implement the TwoDSpacer interface
+
+.play ex_interfaces.go /interface/,/FIN/
+
+* Concurrency
+
+- shared memory + primitives eg mutexes, semaphores, etc
+
+.image shared_memory.png _ 200
+
+- channels
+
+.image channels.jpg _ 350
+
+* Synchronization Primitives
+
+- for example a waitgroup - "waits for a collection of goroutines to finish"
+
+.play goroutines.go /^func main/,/FIN/
+
+* Channels
+
+.play concurrency.go /^func prod/,/FIN/
+
+* Channels
+
+.play timers.go /^func main/,/FIN/
+
+* Wrap up
+
+- Useful websites
+
+.link https://gobyexample.com
+
+.link https://tour.golang.org
+
+.link https://play.golang.org
+
+.link https://goplay.space
 
 - questions?
+
+- Sonia Hamilton, https://github.com/soniah/go-hello-world
